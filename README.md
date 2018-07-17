@@ -2,38 +2,38 @@
 
   
 
-- [POST] "/api/auth/signup"
+- [GET] "/api/[Model Name]"
+
+    	Output {
+			   status:Number,
+			   data:Array[Object] 
+    	}
+
+- [POST] "/api/[Model Name]"
 
     	Input {
-			   username:String,
-			   password:String,
-			   firstName:String,
-			   lastName:String,
-			   email:String               
+			   name:String        
     	}
 
     	Output {
 			   status:Number,
-			   token:String 
+			   data:Object 
     	}
 
-  
-
-- [POST] "/api/auth/signin"
+- [PUT] "/api/[Model Name]/[id]"
 
     	Input {
-			   username:String,
-			   password:String         
+			   name:String        
     	}
 
     	Output {
 			   status:Number,
-			   token:String 
+			   data:Object 
     	}
 
-- [GET] "/api/getuser"
+- [DELETE] "/api/[Model Name]/[id]"
 
     	Output {
 			   status:Number,
-			   data:User 
+			   data:Object 
     	}
