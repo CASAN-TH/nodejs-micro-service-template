@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: mongo
+    ports: 
+      - "27017:27017"
+    deploy:
+      replicas: 1
+  
+  temp-service:
+    image: temp-service:0.2
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+    environment:
+      - MONGO_DB_URI=mongodb://db/myapp
+    deploy:
+      replicas: 1
