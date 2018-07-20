@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose'),
-    passport = require('passport'),
     _model = require('../models/model').model,
     Model = mongoose.model(_model),
     errorHandler = require('../../core/controllers/errors.server.controller'),

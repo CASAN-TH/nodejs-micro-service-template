@@ -4,8 +4,6 @@ var Model = "Temp";
 exports.model = Model;
 
 // use model
-var validator = require('validator');
-var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
