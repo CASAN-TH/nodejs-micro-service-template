@@ -4,9 +4,9 @@ var mongoose = require('mongoose'),
     Model = mongoose.model(_model),
     errorHandler = require('../../core/controllers/errors.server.controller'),
     _ = require('lodash');
-    
-exports.getList = function (req, res) {
-    Model.find(function (err, datas) {
+
+exports.getList = (req, res) => {
+    Model.find((err, datas) => {
         if (err) {
             return res.status(400).send({
                 status: 400,
@@ -21,7 +21,7 @@ exports.getList = function (req, res) {
     });
 };
 
-exports.create = function (req, res) {
+exports.create = (req, res) => {
     var mongooseModel = new Model(req.body);
     mongooseModel.createby = req.user;
     mongooseModel.save(function (err, data) {
@@ -39,7 +39,7 @@ exports.create = function (req, res) {
     });
 };
 
-exports.getByID = function (req, res, next, id) {
+exports.getByID = (req, res, next, id) => {
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({
@@ -48,7 +48,7 @@ exports.getByID = function (req, res, next, id) {
         });
     }
 
-    Model.findById(id, function (err, data) {
+    Model.findById(id, (err, data) => {
         if (err) {
             return res.status(400).send({
                 status: 400,
@@ -61,18 +61,18 @@ exports.getByID = function (req, res, next, id) {
     });
 };
 
-exports.read = function (req, res) {
+exports.read = (req, res) => {
     res.jsonp({
         status: 200,
         data: req.data ? req.data : []
     });
 };
 
-exports.update = function (req, res) {
+exports.update = (req, res) => {
     var mongooseModel = _.extend(req.data, req.body);
     mongooseModel.updated = new Date();
     mongooseModel.updateby = req.user;
-    mongooseModel.save(function (err, data) {
+    mongooseModel.save((err, data) => {
         if (err) {
             return res.status(400).send({
                 status: 400,
@@ -87,8 +87,8 @@ exports.update = function (req, res) {
     });
 };
 
-exports.delete = function (req, res) {
-    req.data.remove(function (err, data) {
+exports.delete = (req, res) => {
+    req.data.remove((err, data) => {
         if (err) {
             return res.status(400).send({
                 status: 400,

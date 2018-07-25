@@ -7,7 +7,7 @@ exports.model = Model;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var validateLocalStrategyEmail = function (email) {
+var validateLocalStrategyEmail =  (email)=> {
     return ((this.provider !== 'local' && !this.updated) || validator.isEmail(email));
 };
 

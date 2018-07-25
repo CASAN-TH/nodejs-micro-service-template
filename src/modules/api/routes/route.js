@@ -2,7 +2,7 @@
 var _model = require('../models/model').model,
     controller = require('../controllers/controller'),
     policy = require('../policy/policy');
-module.exports = function (app) {
+module.exports =  (app)=> {
     var url = '/api/' + _model;
     var urlWithParam = '/api/' + _model + '/:' + _model + 'id';
     app.route(url).all(policy.isAllowed)

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.isAllowed = function (req, res, next) {
+exports.isAllowed =  (req, res, next)=> {
     if (req.user) {
         return next();
     } else {
